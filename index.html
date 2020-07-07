@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rock Paper Scissors</title>
+
+  <link rel="stylesheet" href="styles.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@700&family=Josefin+Sans:wght@500;700&display=swap" rel="stylesheet">
+
+  <script src="https://kit.fontawesome.com/92272be603.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+
+  <h1>Rock Paper Scissors</h1>
+
+  <h2 class="player-heading">You</h2>
+  <h2 class="computer-heading">Computer</h2>
+
+
+
+    <!-- *************** player section *************** -->
+    <section id="player-section">
+
+      <div class="player-ready-image">
+        <img src="left-start.png" class="left-start">
+      </div>
+      <div class="options">
+        <button type="button" name="button" class="option rock"><i class="far fa-hand-rock fa-2x"></i></button>
+        <button type="button" name="button" class="option paper"><i class="far fa-hand-paper fa-2x"></i></button>
+        <button type="button" name="button" class="option scissors"><i class="far fa-hand-scissors fa-2x"></i></button>
+      </div>
+
+    </section>
+
+
+    <!-- *************** scoreboard section *************** -->
+    <section id="scoreboard">
+
+      <div class="scores">
+        <i class="fas fa-circle fa-2x score-1"></i>
+        <i class="fas fa-circle fa-2x score-2"></i>
+        <i class="fas fa-circle fa-2x score-3"></i>
+      </div>
+      <p class="result-text">YOU WIN</p>
+      <button type="button" name="button" class="play-again">play again</button>
+
+    </section>
+
+
+    <!-- *************** computer section *************** -->
+    <section id="computer-section">
+
+      <div class="computer-ready-image">
+        <img src="right-start.png" class="right-start">
+      </div>
+      <p class="computer-trashtalk">"You better not lose to a computer"</p>
+
+    </section>
+
+
+
+
+  <script src="app.js" charset="utf-8"></script>
+</body>
+
+</html>

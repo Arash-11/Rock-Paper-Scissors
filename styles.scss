@@ -1,0 +1,246 @@
+// Media queries are at the
+// very bottom of this stylesheet.
+
+
+%flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+%flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+$body-background-color: #fff;
+$ubuntu-font: 'Josefin Sans', sans-serif;
+$code-font:'Source Code Pro', monospace;
+$font-size-lg: 2em;
+$font-size-md: 1.7em;
+$font-size-sm: 1em;
+$players-text-margin: 5% 0 15%;
+
+$player-section-padding: 0 10% 0 0;
+$computer-section-padding: 0 0 0 10%;
+
+$image-border: solid 1px #f0f0f0;
+$image-border-radius: 2%;
+$image-height: 370px;
+$image-background-color: #FFF;
+$left-image-padding: 20% 5% 20% 0;
+$right-image-padding: 20% 0 20% 5%;
+$image-margin: -20% 0 2%;
+
+$player-section-color: #F50134;
+$computer-section-color: #000;
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: $body-background-color;
+  font-family: $ubuntu-font;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-areas:
+      "heading heading heading"
+      "player-title . computertitle"
+      "player-section score computer-section";
+  grid-gap: 0;
+  grid-template-columns: 2fr 1fr 2fr;
+}
+
+
+h1 {
+  grid-area: heading;
+  font-size: $font-size-lg;
+  text-align: center;
+  margin-top: 3%;
+}
+
+
+.player-heading {
+  grid: player-title;
+  font-size: $font-size-md;
+  text-align: center;
+  color: $player-section-color;
+  margin: 0 0 0 17%;
+}
+
+.computer-heading {
+  grid: computer-title;
+  font-size: $font-size-md;
+  text-align: center;
+  color: $computer-section-color;
+  margin: 0 -130% 0 130%;
+}
+
+
+// --------------- player section ---------------
+#player-section {
+  grid-area: player-section;
+  @extend %flex-column;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100vh;
+  padding: $player-section-padding;
+}
+
+.player-ready-image {
+  border: $image-border;
+  border-radius: $image-border-radius;
+  height: $image-height;
+  background: $image-background-color;
+  padding: $left-image-padding;
+  margin: $image-margin;
+}
+
+// this will be added by JavaScript to the image inside 'player-ready-image' div between hand changes
+.player-hand-change {
+  animation-name: player-hand-change;
+  animation-duration: 450ms;
+  animation-iteration-count: 1;
+}
+
+@keyframes player-hand-change {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.options {
+  height: 15%;
+  width: 25vw;
+  overflow-x: hidden;
+  @extend %flex-row;
+  justify-content: space-around;
+  .scissors {
+    transform: rotate(90deg);
+    &:hover {
+      transform: rotate(90deg) scale(1.1);
+    }
+  }
+  button {
+    height: 60px;
+    width: 60px;
+    color: #fff;
+    border: solid 1px $player-section-color;
+    border-radius: 50%;
+    background: $player-section-color;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+  }
+}
+
+
+// --------------- scoreboard ---------------
+#scoreboard {
+  grid-area: score;
+  @extend %flex-column;
+  justify-content: space-around;
+  padding: 5% 0;
+}
+
+.scores {
+  @extend %flex-row;
+  justify-content: space-around;
+  width: 70%;
+  color: #E0E0E0;
+  margin-top: 40%;
+}
+
+.result-text {
+  visibility: hidden;
+  font-size: $font-size-md;
+  color: $player-section-color;
+  margin-bottom: 40%;
+}
+
+.play-again {
+  visibility: hidden;
+  font-size: $font-size-sm;
+  margin-bottom: 50%;
+  height: 55px;
+  width: 140px;
+  color: #fff;
+  border: solid 1px #000;
+  background: #000;
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    outline: solid $player-section-color;
+  }
+}
+
+
+// --------------- computer section ---------------
+#computer-section {
+  grid-area: computer-section;
+  @extend %flex-column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  padding: $computer-section-padding;
+}
+
+.computer-ready-image {
+  border: $image-border;
+  border-radius: $image-border-radius;
+  height: $image-height;
+  background: $image-background-color;
+  padding: $right-image-padding;
+  margin: $image-margin;
+}
+
+// this will be added by JavaScript to the image inside 'computer-ready-image' div between hand changes
+.computer-hand-change {
+  animation-name: computer-hand-change;
+  animation-duration: 450ms;
+  animation-iteration-count: 1;
+}
+
+@keyframes computer-hand-change {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.computer-trashtalk {
+  height: 15%;
+  width: 28vw;
+  overflow-x: hidden;
+  padding-top: 10%;
+  text-align: center;
+  font-family: $code-font;
+  font-size: $font-size-sm;
+  color: $computer-section-color;
+}
+
+// --------------- media query ---------------
+$medium-viewport: 950px;
+$tablet-viewport: 580px;
+$phone-viewport: 300px;
+
+
+@import '_tablet';
+@import '_smartphone';
