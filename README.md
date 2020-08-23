@@ -1,6 +1,8 @@
 # A player-vs-computer 'Rock Paper Scissors' game
 
-I built this **fully responsive** site to practice vanilla JavaScript! You can check out the site here: https://arash-11.github.io/Rock-Paper-Scissors/
+I built this **fully responsive** site to practice vanilla JavaScript!
+
+You can check out the site here: https://arash-11.github.io/Rock-Paper-Scissors/
 
 Website preview:
 
